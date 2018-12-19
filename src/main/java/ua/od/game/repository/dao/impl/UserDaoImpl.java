@@ -15,7 +15,7 @@ public class UserDaoImpl implements UserDao {
             pstmt.setString(1, user.getName());
             pstmt.setString(2, user.getPassword());
             pstmt.setString(3, user.getToken());
-            return pstmt.executeUpdate();
+            return pstmt.executeUpdate() > 0 ? user.getToken() : null;
         });
         if(token.isEmpty()) {
             LOG.warning("This user already exists!!!!");

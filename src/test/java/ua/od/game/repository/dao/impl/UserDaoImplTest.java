@@ -5,14 +5,13 @@ import org.junit.Test;
 import ua.od.game.model.UserEntity;
 import ua.od.game.repository.dao.DbTest;
 import ua.od.game.repository.dao.UserDao;
-import java.nio.charset.Charset;
-import java.util.Random;
 import java.util.UUID;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
+
 public class UserDaoImplTest extends DbTest {
     UserDao userDao;
 
@@ -23,21 +22,15 @@ public class UserDaoImplTest extends DbTest {
 
     @Test
     public void testCreateUser() {
-        String token,name;
-        byte[] array;
-        UserEntity user;
-
-        token = UUID.randomUUID().toString();
-        array = new byte[7];
-        new Random().nextBytes(array);
-        name = new String(array, Charset.forName("UTF-8"));
-        user = new UserEntity() {{
-            setName(name);
+        String token = UUID.randomUUID().toString();
+        UserEntity user = new UserEntity() {{
+            setName("testName");
             setPassword("12345");
             setToken(token);
         }};
-        assertEquals(token,userDao.createNewUser(user));
-        assertNotEquals(token,userDao.createNewUser(user));
+
+        String testToken = userDao.createNewUser(user);
+        assertEquals(token, testToken);
     }
 
     @Test
