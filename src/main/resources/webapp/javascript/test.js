@@ -35,7 +35,7 @@ const testEndpoints = {
         getAllCardList: () => endpoints.getAllCardList(showJsonResult)
     },
     testMessageController: {
-        getRoomMessageList: () => endpoints.getRoomMessageList({roomId: 1}, showJsonResult),
+        getMessageList: () => endpoints.getMessageList(1, 2, new Date(), showJsonResult),
         sendMessage: () => endpoints.sendMessage(showJsonResult)
     },
     testNotificationController: {

@@ -51,7 +51,7 @@ const endpoints = {
         getAllCardList: (callback) => restRequest(METHOD_GET, `${REST_API_URL}/card/list`, callback)
     },
     MessageController: {
-        getMessageList: (fromAccountId, toAccountId, callback) => restRequest(METHOD_GET, `${REST_API_URL}/account/message/player/${fromAccountId}/enemy/${toAccountId}/list`, callback),
+        getMessageList: (fromAccountId, toAccountId, from_time, callback) => restRequest(METHOD_GET, `${REST_API_URL}/account/message/time/${from_time}/player/${fromAccountId}/enemy/${toAccountId}/list`, callback),
         sendMessage: (body, callback) => restRequest(METHOD_POST, `${REST_API_URL}/account/message/send`, callback, body)
     },
     NotificationController: {
