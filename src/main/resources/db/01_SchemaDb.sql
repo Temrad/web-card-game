@@ -101,6 +101,7 @@ CREATE TABLE `Resource` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`name` varchar(64) NOT NULL,
 	`description` varchar(128) NOT NULL,
+	`default_number` INT NULL,
 	PRIMARY KEY (`id`)
 );
 
