@@ -8,4 +8,7 @@ import java.util.List;
 public interface MessageDao {
     List<MessageEntity> getMessageList(Integer fromAccountId, Integer toAccountId, Date fromTime);
     Boolean sendMessage(MessageEntity message);
+
+
+
 }

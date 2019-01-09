@@ -9,8 +9,6 @@ public class MessageEntity {
     private Integer toAccountId;
     private Date time;
 
-    public MessageEntity () {}
-
     public Integer getId() {
         return id;
     }
@@ -35,6 +33,10 @@ public class MessageEntity {
         this.fromAccountId = fromAccountId;
     }
 
+    public void setToAccountId(Integer toAccountId) {
+        this.toAccountId = toAccountId;
+    }
+  
     public Integer getToAccountId() {
         return toAccountId;
     }
@@ -43,7 +45,7 @@ public class MessageEntity {
         this.toAccountId = toAccountId;
     }
 
-    public java.sql.Date getTime() {
+    public Date getTime() {
         return time;
     }
 
