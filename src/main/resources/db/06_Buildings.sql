@@ -1,4 +1,4 @@
-INSERT INTO `Buildings`
+INSERT INTO `Building`
     (`name`, `description`, `default_number`, `resource_set_id`)
 VALUES
     ('Bin', 'Your kitchen, bed and main source of income.', 5, 1),
