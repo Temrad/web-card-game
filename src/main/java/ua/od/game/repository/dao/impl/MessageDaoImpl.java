@@ -6,7 +6,6 @@ import ua.od.game.repository.dao.MessageDao;
 import ua.od.game.repository.helper.SqlHelper;
 
 import java.sql.ResultSet;
-import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,8 +14,8 @@ import java.util.logging.Logger;
 
 public class MessageDaoImpl implements MessageDao {
     private static Logger LOG = Logger.getLogger(MessageDaoImpl.class.getName());
-    private static final String GET_MESSAGES = "SELECT * FROM Message WHERE from_account_id = ? AND to_account_id = ? AND time = ?";
-    private static final String ADD_NEW_MESSAGE = "INSERT INTO Message (text, fromAccountId, toAccountId, time) values (?,?,?,?)";
+    private static final String GET_MESSAGES = "SELECT * FROM Message WHERE from_account_id = ? AND to_account_id = ? AND time > ?";
+    private static final String ADD_NEW_MESSAGE = "INSERT INTO Message (text, from_account_id, to_account_id, time) values (?,?,?,?)";
   
     @Override
     public List<MessageEntity> getMessageList(Integer fromAccountId, Integer toAccountId, Date fromTime) {
@@ -44,7 +43,7 @@ public class MessageDaoImpl implements MessageDao {
             pstmt.setString(1, message.getText());
             pstmt.setInt(2, message.getFromAccountId());
             pstmt.setInt(3, message.getToAccountId());
-            pstmt.setDate(4, message.getTime());
+            pstmt.setDate(4, new java.sql.Date(message.getTime().getTime()));
             return pstmt.executeUpdate() > 0;
         });
         if(!isOk) {

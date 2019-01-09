@@ -41,10 +41,6 @@ public class MessageEntity {
         return toAccountId;
     }
 
-    public void setToAccountId(Integer toAccountId) {
-        this.toAccountId = toAccountId;
-    }
-
     public Date getTime() {
         return time;
     }
