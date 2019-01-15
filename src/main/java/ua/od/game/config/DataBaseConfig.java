@@ -22,7 +22,7 @@ public class DataBaseConfig {
     public static final String DB_DRIVER = dbProperties.getProperty("db.driver");
     public static final String DB_HOST = dbProperties.getProperty("db.host");
     public static final String DB_CONNECTION_URL = DB_HOST + USER_PASSWORD;
-    public static final String DB_DATABASE_URL = DB_HOST + DB_NAME + USER_PASSWORD;
+    public static String DB_DATABASE_URL = DB_HOST + DB_NAME + USER_PASSWORD;
     public static final String DB_SCRIPTS_FOLDER = ABSOLUTE_CLASSPATH + dbProperties.getProperty("db.scripts.folder");
     public static final String DB_SCRIPT_DELIMITER = ";";
 
