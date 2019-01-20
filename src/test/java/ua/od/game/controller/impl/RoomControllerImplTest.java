@@ -6,7 +6,7 @@ import ua.od.game.controller.ControllerTest;
 
 import java.io.IOException;
 
-public class RoomControllerImplTest extends ControllerTest {
+public class RoomControllerImplTest /*extends ControllerTest*/ {
 
     RoomControllerImpl roomControllerImpl;
 
