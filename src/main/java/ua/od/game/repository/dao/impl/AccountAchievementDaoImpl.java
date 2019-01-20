@@ -1,11 +1,9 @@
 package ua.od.game.repository.dao.impl;
 
-import ua.od.game.dto.AccountAchievementDto;
 import ua.od.game.model.AccountAchievementEntity;
 import ua.od.game.repository.dao.AccountAchievementDao;
 import ua.od.game.repository.helper.SqlHelper;
 
-import javax.management.Query;
 import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -16,9 +14,9 @@ public class AccountAchievementDaoImpl implements AccountAchievementDao {
 
     @Override
     public List<AccountAchievementEntity> getUserAchievementsList(Integer accountId) {
-        return SqlHelper.prepareStatement(GET_ACCOUNT_ACHIEVEMENT_LIST, query -> {
-            query.setInt(1, accountId);
-            ResultSet resultSet = query.executeQuery();
+        return SqlHelper.prepareStatement(GET_ACCOUNT_ACHIEVEMENT_LIST, statement -> {
+            statement.setInt(1, accountId);
+            ResultSet resultSet = statement.executeQuery();
             List<AccountAchievementEntity> result = new LinkedList<>();
             while (resultSet.next()) {
                 result.add(new AccountAchievementEntity() {{
