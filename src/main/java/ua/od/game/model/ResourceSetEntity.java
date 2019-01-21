@@ -37,4 +37,14 @@ public class ResourceSetEntity {
     public void setAmount(Float amount) {
         this.amount = amount;
     }
+
+    @Override
+    public String toString() {
+        return "ResourceSetEntity{" +
+                "id=" + id +
+                ", setId=" + setId +
+                ", resourceId=" + resourceId +
+                ", amount=" + amount +
+                '}';
+    }
 }
