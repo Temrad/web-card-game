@@ -32,6 +32,8 @@ public class MessageControllerImpl implements MessageController {
     @Path("/send")
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Response sendMessage(MessageDto message) {
-        return null;
+        messageService.sendMessage(message);
+        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, message.toString());
+        return Response.ok().build();
     }
 }

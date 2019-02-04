@@ -1,6 +1,7 @@
 package ua.od.game.service.impl;
 
 import ua.od.game.dto.MessageDto;
+import ua.od.game.model.MessageEntity;
 import ua.od.game.repository.dao.MessageDao;
 import ua.od.game.service.MessageService;
 
@@ -28,6 +29,12 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public Boolean sendMessage(MessageDto message) {
-        return null;
+        return messageDao.sendMessage(new MessageEntity(){{
+            setId(message.getId());
+            setFromAccountId(message.getFromAccountId());
+            setToAccountId(message.getToAccountId());
+            setTime(message.getTime());
+            setText(message.getText());
+        }});
     }
 }
